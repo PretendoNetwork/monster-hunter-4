@@ -42,9 +42,9 @@ All configuration options are handled via environment variables
 
 `.env` files are supported
 
-| Name                                 | Description                                                                                                         | Required                                      |
-|--------------------------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| `PN_MH4_POSTGRES_URI`               | Fully qualified URI to your Postgres server (Example `postgres://username:password@localhost/MH4?sslmode=disable`) | Yes                                           |
+| Name                                | Description                                                                                                         | Required                                      |
+|-------------------------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| `PN_MH4_POSTGRES_URI`               | Fully qualified URI to your Postgres server (Example `postgres://username:password@localhost/MH4?sslmode=disable`)  | Yes                                           |
 | `PN_MH4_AUTHENTICATION_SERVER_PORT` | Port for the authentication server                                                                                  | Yes                                           |
 | `PN_MH4_SECURE_SERVER_HOST`         | Host name for the secure server (should point to the same address as the authentication server)                     | Yes                                           |
 | `PN_MH4_SECURE_SERVER_PORT`         | Port for the secure server                                                                                          | Yes                                           |
@@ -55,3 +55,4 @@ All configuration options are handled via environment variables
 | `PN_MH4_FRIENDS_GRPC_PORT`          | Port for your friends server gRPC service                                                                           | Yes                                           |
 | `PN_MH4_FRIENDS_GRPC_API_KEY`       | API key for your friends server gRPC service                                                                        | No (Assumed to be an open gRPC API)           |
 | `PN_MH4_AES_KEY`                    | AES key from the account server                                                                                     | Yes                                           |
+| `PN_MH4_HEALTH_CHECK_PORT`          | Port for the UDP health check                                                                                       | No                                            |
