@@ -4,10 +4,10 @@ import (
 	"context"
 
 	"github.com/PretendoNetwork/nex-go/v2/types"
-
+	common_globals "github.com/PretendoNetwork/nex-protocols-common-go/v2/globals"
 	"time"
 
-	pb "github.com/PretendoNetwork/grpc-go/account"
+	pb "github.com/PretendoNetwork/grpc/go/account/v2"
 	"github.com/PretendoNetwork/nex-go/v2"
 	"google.golang.org/grpc/metadata"
 )
@@ -27,9 +27,9 @@ func UserDataFromPID(pid types.PID) (*pb.GetUserDataResponse, uint32) {
 
 	data, exists := UserDataCache[pid]
 	if !exists || data.creationTime.Add(time.Hour*24).Before(time.Now().UTC()) {
-		ctx := metadata.NewOutgoingContext(context.Background(), GRPCAccountCommonMetadata)
+		ctx := metadata.NewOutgoingContext(context.Background(), common_globals.GRPCAccountCommonMetadata)
 
-		response, err := GRPCAccountClient.GetUserData(ctx, &pb.GetUserDataRequest{Pid: uint32(pid)})
+		response, err := common_globals.GRPCAccountClient.GetUserData(ctx, &pb.GetUserDataRequest{Pid: uint32(pid)})
 		if err != nil {
 			Logger.Error(err.Error())
 			UserDataCache[pid] = UserDataCacheEntry{userData: nil, creationTime: time.Now().UTC()}

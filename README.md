@@ -15,7 +15,7 @@ $ cd monster-hunter-4
 To compile using Go, `go get` the required modules and then `go build` to your desired location. You may also want to tidy the go modules, though this is optional
 
 ```bash
-$ go get -u
+$ go get
 $ go mod tidy
 $ go build -o build/monster-hunter-4
 ```
@@ -54,5 +54,4 @@ All configuration options are handled via environment variables
 | `PN_MH4_FRIENDS_GRPC_HOST`          | Host name for your friends server gRPC service                                                                      | Yes                                           |
 | `PN_MH4_FRIENDS_GRPC_PORT`          | Port for your friends server gRPC service                                                                           | Yes                                           |
 | `PN_MH4_FRIENDS_GRPC_API_KEY`       | API key for your friends server gRPC service                                                                        | No (Assumed to be an open gRPC API)           |
-| `PN_MH4_AES_KEY`                    | AES key from the account server                                                                                     | Yes                                           |
 | `PN_MH4_HEALTH_CHECK_PORT`          | Port for the UDP health check                                                                                       | No                                            |

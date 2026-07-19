@@ -13,10 +13,9 @@ import (
 
 func registerCommonAuthenticationServerProtocols() {
 	ticketGrantingProtocol := ticketgranting.NewProtocol()
-	ticketGrantingProtocol.SetUseCrossplay(true)
 	globals.AuthenticationEndpoint.RegisterServiceProtocol(ticketGrantingProtocol)
 	commonTicketGrantingProtocol := commonticketgranting.NewCommonProtocol(ticketGrantingProtocol)
-	commonTicketGrantingProtocol.SetPretendoValidation(globals.AESKey)
+	commonTicketGrantingProtocol.ConfigurePNValidation([]string{"0004B500"})
 
 	port, _ := strconv.Atoi(os.Getenv("PN_MH4_SECURE_SERVER_PORT"))
 
