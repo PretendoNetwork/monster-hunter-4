@@ -3,8 +3,7 @@ package globals
 import (
 	"database/sql"
 
-	pbaccount "github.com/PretendoNetwork/grpc-go/account"
-	pbfriends "github.com/PretendoNetwork/grpc-go/friends"
+	pbfriends "github.com/PretendoNetwork/grpc/go/friends"
 	"github.com/PretendoNetwork/nex-go/v2"
 	common_globals "github.com/PretendoNetwork/nex-protocols-common-go/v2/globals"
 	"github.com/PretendoNetwork/plogger-go"
@@ -24,12 +23,6 @@ var AuthenticationEndpoint *nex.PRUDPEndPoint
 var SecureServer *nex.PRUDPServer
 var SecureEndpoint *nex.PRUDPEndPoint
 
-var GRPCAccountClientConnection *grpc.ClientConn
-var GRPCAccountClient pbaccount.AccountClient
-var GRPCAccountCommonMetadata metadata.MD
-
 var GRPCFriendsClientConnection *grpc.ClientConn
 var GRPCFriendsClient pbfriends.FriendsClient
 var GRPCFriendsCommonMetadata metadata.MD
-
-var GameHasSwitchCrossplay bool // * This is here for the sake of verbosity, this should always be true if the game has crossplay, even if it isn't actively supported by the server
