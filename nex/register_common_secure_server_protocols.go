@@ -20,7 +20,6 @@ import (
 
 	matchmakingtypes "github.com/PretendoNetwork/nex-protocols-go/v2/match-making/types"
 	messagedelivery "github.com/PretendoNetwork/nex-protocols-go/v2/message-delivery"
-	ranking "github.com/PretendoNetwork/nex-protocols-go/v2/ranking"
 
 	local_matchmake_extension "github.com/PretendoNetwork/monster-hunter-4/nex/matchmake-extension"
 )
@@ -50,9 +49,6 @@ func registerCommonSecureServerProtocols() {
 	matchMakingExtProtocol := matchmakingext.NewProtocol()
 	globals.SecureEndpoint.RegisterServiceProtocol(matchMakingExtProtocol)
 	commonmatchmakingext.NewCommonProtocol(matchMakingExtProtocol).SetManager(globals.MatchmakingManager)
-
-	rankingProtocol := ranking.NewProtocol()
-	globals.SecureEndpoint.RegisterServiceProtocol(rankingProtocol)
 
 	matchmakeExtensionProtocol := matchmakeextension.NewProtocol()
 	globals.SecureEndpoint.RegisterServiceProtocol(matchmakeExtensionProtocol)
